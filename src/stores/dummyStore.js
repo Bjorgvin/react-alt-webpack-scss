@@ -5,7 +5,7 @@ import actions from 'actions/dummyActions';
 @createStore(flux)
 class DummyStore {  
   constructor() {
-    this.name = 'awesome';
+    this.name = 'awe-some';
   }
 
   @bind(actions.updateName)
