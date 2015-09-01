@@ -6,8 +6,15 @@ class Main extends React.Component {
     return (
       <div>
         <h1>Example</h1>
-        <Link to='example'>Go to the Example page...</Link>
-        <RouteHandler/>
+
+        <div id='navitation'>
+          <Link to='example'>Go to the Example page...</Link>
+        	<Link to='/'>Go to the Main page...</Link>
+        </div>
+        
+        <div id='page-content'>
+        	<RouteHandler/>
+        </div>
       </div>
     );
   }
