@@ -3,15 +3,10 @@ import connectToStores from 'alt/utils/connectToStores';
 import DocumentStore from 'stores/documentStore';  
 import DocumentActions from 'actions/documentActions';
 import 'components/style';
-import AceEditor from 'react-ace-wrapper'
-
-// load used syntax highlighting
-import 'brace/mode/markdown';
-// load used themes
-import 'brace/theme/github';
+import Markdown from 'react-remarkable'
 
 @connectToStores
-class Editor extends React.Component {  
+class Preview extends React.Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -29,23 +24,9 @@ class Editor extends React.Component {
 
   render() {
     return (
-    	
-			<AceEditor
-				mode='markdown'
-				theme='github'
-				height="500em"
-				name='ace-editor'
-				onChange={this.onChange}/>
-		
+		<Markdown source={this.props.markdown} />
     );
   }
-
-  onChange = evt => {
-  	console.log("Markdown text: " + evt)
-  	this.setState({markdown: evt});
-    DocumentActions.saveMarkdown(evt);
-
-  }  
 }
 
-export default Editor;  
+export default Preview;  
